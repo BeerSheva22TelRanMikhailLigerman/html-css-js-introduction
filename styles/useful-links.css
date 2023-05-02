@@ -1,15 +1,16 @@
-a {
+.link {
     text-decoration: none;
     display: block;
     text-align: center;
+    background-color: white;
 }
 
-img {
+.link-image{
     width: 60px;
     vertical-align: middle;
 }
 
-label {
+.link-title {
     font-size: 1.5em;
     width: 25vw;
     display: inline-block;
