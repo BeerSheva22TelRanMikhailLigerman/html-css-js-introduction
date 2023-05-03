@@ -18,6 +18,7 @@ main {
     display: flex;
     flex-direction: column;
 }
+
 .details-section {
     margin-top: 7vh;
     display: flex;
@@ -61,7 +62,7 @@ main {
     overflow: hidden;
 
 }
-.thumnails-image {
+.thumbnails-image {
     width: 20vw;
     height: 12vw;
     display: block;
