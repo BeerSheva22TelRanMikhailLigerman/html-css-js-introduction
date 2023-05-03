@@ -1,0 +1,70 @@
+body{
+    display: flex;
+    flex-direction: column;
+    background-color: aliceblue;   
+    margin: 0;
+}
+header{
+    text-align: center;
+    background-color: antiquewhite;
+
+}
+
+.logo{
+    font-size: 1.6em;
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+}
+main{
+    display: flex;
+    flex-direction: column;
+}
+.details-section{
+    margin-top: 3vh;
+    display: flex;
+    align-self: center;
+    justify-content: center;
+    
+}
+.details-image{
+    width: 55vw;
+    height: 45vw;
+    border-radius: 20%;
+}
+.details-container{
+    position: relative;
+}
+.details-title{
+    background-color: beige;
+    font-style: italic;
+    font-size: 1.5em;
+    position: absolute;
+    left: -6vw;
+    bottom: 2vh;
+}
+.thumbnails-list{
+    list-style: none; /*убирает точки*/
+    display: flex;
+    flex-wrap: wrap; /*перенос на вторую строку, если не уместиться в одной*/
+    max-height: 30vh;
+    max-width: 40vh;
+    overflow-y: auto; /*add scrolling*/
+    margin-top: 2vh;
+    gap: 3vh;
+}
+.thumbnails-item{
+    border: solid 1px color blue;
+    border-radius: 25%;
+    max-width: 12vw;
+    min-width: 12vw;
+
+}
+.thumbnails-img{
+    width: 16vw;
+    height: 11vw;
+}
+.thumbnails-title{
+    display: block;
+    text-align: center;
+    background-color: azure;
+}
