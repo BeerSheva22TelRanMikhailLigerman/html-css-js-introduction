@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dogram</title>
+    <link rel="stylesheet" href="styles/dogram.css">
+    <link rel="shortcut icon" href="images/dogfavicon.png" type="image/x-icon">
+</head>
+
+<body>
+   <header>
+      <h3 class="logo">Dogram</h3>
+   </header>
+   <main>
+    <section class="details-section hidden" >
+        <div class="details-container">
+            <img src="images/dog1.png" class="details-image">
+            <span class="details-title">start text</span>
+            <button onclick="hideDetails()" class="hide-button">X</button>
+        </div>
+    </section>
+
+
+    <section class="thumbnails-section">
+        <ul class="thumbnails-list">
+            <li class="thumbnails-item">
+                <a 
+                    href="#" class="thumnails-ancor"
+                    data-details-image="images/dog1.png" 
+                    data-details-text="The most funny dog">
+                    <img src="images/dog1.png" class="thumnails-image">
+                    <span class="thumbnails-title">Buba</span>
+                </a>
+            </li>
+            <li class="thumbnails-item">
+                <a href="#" class="thumnails-ancor" 
+                data-details-image="images/dog2.png" data-details-text="The most crazy dog">
+                    <img src="images/dog2.png" class="thumnails-image">
+                    <span class="thumbnails-title">Helper</span>
+                </a>
+            </li>
+            <li class="thumbnails-item">
+                <a href="#" class="thumnails-ancor"
+                data-details-image="images/dog3.png" data-details-text="The most lazy dog">
+                    <img src="images/dog3.png" class="thumnails-image">
+                    <span class="thumbnails-title">good dog</span>
+                </a>
+            </li>
+            <li class="thumbnails-item">
+                <a href="#" class="thumnails-ancor"
+                data-details-image="images/dog4.png" data-details-text="The most gray dog">
+                    <img src="images/dog4.png" class="thumnails-image">
+                    <span class="thumbnails-title">dog4-gray</span>
+                </a>
+            </li>
+            <li class="thumbnails-item">
+                <a href="#" class="thumnails-ancor"
+                data-details-image="images/dog5.png" data-details-text="The most white dog">
+                    <img src="images/dog5.png" class="thumnails-image">
+                    <span class="thumbnails-title">WhiteDog</span>
+                </a>
+            </li>
+            <li class="thumbnails-item">
+                <a href="#" class="thumnails-ancor"
+                data-details-image="images/dog1.png" data-details-text="The most funny dog">
+                    <img src="images/dog1.png" class="thumnails-image">
+                    <span class="thumbnails-title">Buba</span>
+                </a>
+            </li>
+            <li class="thumbnails-item">
+                <a href="#" class="thumnails-ancor" 
+                data-details-image="images/dog2.png" data-details-text="The most crazy dog">
+                    <img src="images/dog2.png" class="thumnails-image">
+                    <span class="thumbnails-title">Helper</span>
+                </a>
+            </li>
+            <li class="thumbnails-item">
+                <a href="#" class="thumnails-ancor"
+                data-details-image="images/dog3.png" data-details-text="The most good dog">
+                    <img src="images/dog3.png" class="thumnails-image">
+                    <span class="thumbnails-title">good dog</span>
+                </a>
+            </li>
+            <li class="thumbnails-item">
+                <a href="#" class="thumnails-ancor"
+                data-details-image="images/dog4.png" data-details-text="The most gray dog">
+                    <img src="images/dog4.png" class="thumnails-image">
+                    <span class="thumbnails-title">dog4-gray</span>
+                </a>
+            </li>
+            <li class="thumbnails-item">
+                <a href="#" class="thumnails-ancor"
+                data-details-image="images/dog5.png" data-details-text="The most white dog">
+                    <img src="images/dog5.png" class="thumnails-image">
+                    <span class="thumbnails-title">WhiteDog</span>
+                </a>
+            </li>
+            <li class="thumbnails-item">
+                <a href="#" class="thumnails-ancor"
+                data-details-image="images/dog1.png" data-details-text="The most funny dog">
+                    <img src="images/dog1.png" class="thumnails-image">
+                    <span class="thumbnails-title">Buba</span>
+                </a>
+            </li>
+            <li class="thumbnails-item">
+                <a href="#" class="thumnails-ancor" 
+                data-details-image="images/dog2.png" data-details-text="The most crazy dog">
+                    <img src="images/dog2.png" class="thumnails-image">
+                    <span class="thumbnails-title">Helper</span>
+                </a>
+            </li>
+            <li class="thumbnails-item">
+                <a href="#" class="thumnails-ancor"
+                data-details-image="images/dog3.png" data-details-text="The most good dog">
+                    <img src="images/dog3.png" class="thumnails-image">
+                    <span class="thumbnails-title">good dog</span>
+                </a>
+            </li>
+            <li class="thumbnails-item">
+                <a href="#" class="thumnails-ancor"
+                data-details-image="images/dog4.png" data-details-text="The most gray dog">
+                    <img src="images/dog4.png" class="thumnails-image">
+                    <span class="thumbnails-title">dog4-gray</span>
+                </a>
+            </li>
+            <li class="thumbnails-item">
+                <a href="#" class="thumnails-ancor"
+                data-details-image="images/dog5.png" data-details-text="The most white dog">
+                    <img src="images/dog5.png" class="thumnails-image">
+                    <span class="thumbnails-title">WhiteDog</span>
+                </a>
+            </li>
+        </ul>
+    </section>
+   </main> 
+   
+<script src="src/dogs.js">  </script>
+</body>
+
+</html>
