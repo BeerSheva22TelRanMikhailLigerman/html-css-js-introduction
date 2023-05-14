@@ -24,17 +24,43 @@ function getRandomIntNumber(min, max, minInclusive=true, maxInclusive=false) {
   
  }
 
-function getOrderedList(array){
-  res = '';
-  if (Array.isArray(array)) {
-    const items = array.map(i => `<li ${i ? 'class="item-style-black"' : 'class="item-style-white"'}></li>`);
-    res = `<ol>${items.join('')}</ol>`
+// function getChesseLine(array){
+//   let res = '';
+//   if (Array.isArray(array)) {
+//     const items = array.map(i => `<li ${i ? 'class="chess-wite-square"' : 'class="chess-black-square"'}></li>`);
+//     res = `<ol class = "chess-line'>${items.join('')}</ol>`;
+//   }
+//   return res;
+//}
+
+ 
+
+
+function getChessMatrix(){ 
+  let board = [];  
+  for (let i = 0; i < 8; i++){
+    board[i] = fillRow(i);
   }
-  return res;
+  return board.join('');
 }
 
-bodyId.innerHTML = getOrderedList(getArrayRandomIntNumbers(10, 0, 2));
+function fillRow(rowNumber){
+  let row = [];
+  row.length = 8;
+  let index = rowNumber % 2 == 0 ? 1 : 0;
+  for (let i = 0; i < row.length; i++) {    
+       row[i] = `<li ${index ? 'class="chess-wite-square"' : 'class="chess-black-square"'}></li>`;
+       index = index ? 0 : 1;    
+  }  
+  return `<ol class = "chess-line">${row.join('')}</ol>`;
+}
 
-const allLists = document.querySelector("ol");
-allLists.classList.add("list-style");
+bodyId.innerHTML = getChessMatrix();
+
+const body = document.querySelector("body");
+body.classList.add("body-style");
+// const allLists = document.querySelector("ol");
+// allLists.classList.add("list-style");
+
+console.log(getChessMatrix());
 
