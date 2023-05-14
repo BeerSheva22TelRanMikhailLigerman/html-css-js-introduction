@@ -10,10 +10,25 @@ body {
     flex-direction: row;
 
 }
+.cells{
+    display: flex;
+    flex-direction: row;
+    width: 200px;
+    height: 30px;
+    justify-content: space-around;    
+}
+
 #square-id {
     margin-top: 5vh;
     margin-bottom:5vh;
     width: 30px;
     height: 30px;
-    border: 1px solid black;
+    border: 1px solid black;   
+    text-align: center;
+    font-size: large;
+}
+
+.bottom{
+    display: flex;
+    flex-direction: column;
 }
