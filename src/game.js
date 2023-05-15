@@ -3,6 +3,7 @@ const nTries = 3;
 //const vocabulary = ["apple", "comma", "table", "happy", "width", "scope", "floor", "sport", "guess"];
 const vocabulary = ["a", "bb", "abc", "abcabc"];
 
+
 //elements
 const SQUARE = '<div id="square-id" class="square"></div>';
 const cellsElement = document.getElementById("cells-id");
@@ -21,7 +22,7 @@ let squareElements;
 //functions
 function game() {
     const guess = (inputElement.value).toLowerCase();
-   
+    count++;
 
     if (guess.length != word.length) {
         alert(`must be ${word.length} letters`);            // ? break
@@ -43,8 +44,7 @@ function game() {
     }
     if (victory) {
         finishGame(1);
-    } else {
-        count++;
+    } else {       
         if (count == nTries) {
             finishGame(0);
         }
