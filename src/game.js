@@ -1,6 +1,6 @@
 //configuration
-const nTries = 6;
-const vocabulary = ["apple", "comma", "width", "scope", "floor", "sport", "guess"];
+const nTries = 3;
+const vocabulary = ["apple", "comma", "table", "happy", "width", "scope", "floor", "sport", "guess"];
 //elements
 const goButtonElement = document.getElementById("go-id");
 const inputElement = document.getElementById('input-id');
@@ -15,10 +15,11 @@ let count = 0;
 let word;
 //functions
 function game() {
-
     const guess = (inputElement.value).toLowerCase();
-
-    let victory = 1;
+    if (guess.length != 5) {
+        alert("must be 5 letters");            // ? break
+    } else {
+        let victory = 1;
     for (let i = 0; i < 5; i++) {
         squareElements[i].innerHTML = guess[i];
         if (guess[i] == word[i]) {
@@ -43,6 +44,9 @@ function game() {
         
     }
     inputElement.value = '';
+    }
+
+    
 
 }
 function startGame() {
@@ -52,7 +56,7 @@ function startGame() {
     inputElement.readOnly = false;
     squareElements.forEach(item => {
         item.style.backgroundColor = "white";
-        innerHTML = ' '});
+        item.innerHTML = ' '});
     resultMessageElement.innerHTML = '';
     playAgainButtonElement.hidden = true;
 }

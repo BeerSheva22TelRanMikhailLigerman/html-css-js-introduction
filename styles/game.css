@@ -26,6 +26,8 @@ body {
     border: 1px solid black;   
     text-align: center;
     font-size: large;
+    font-weight: bold;
+    color: white;
 }
 
 .bottom{
