@@ -25,28 +25,26 @@ let answer = '';
 let squareElements;
 
 //functions
-function game() {
+function game() {   
     const guess = (inputElement.value).toLowerCase();
     count++;
-
-    if (guess.length != answer.length) {
-        alert(`must be ${answer.length} letters`);            // ? break
-    } else {
-        let victory = 1;
-    for (let i = 0; i < answer.length; i++) {
-        squareElements[i].innerHTML = guess[i];
-        if (guess[i] == answer[i]) {
-            squareElements[i].style.backgroundColor = "green";
-        } else {
-            if (answer.includes(guess[i])) {
-                squareElements[i].style.backgroundColor = "yellow";
-                victory = 0;
-            } else {
-                squareElements[i].style.backgroundColor = "gray";
-                victory = 0;
+    let victory = 1;
+    if (guess.length == 1){
+        squareElements.forEach(item => {
+            if (item.innerHTML == guess) {
+                item.style.backgroundColor = "white";
             }
+        })
+    }
+    if (guess.length == answer.length){
+        if (guess == answer){
+            squareElements.forEach(item => item.style.backgroundColor = "white")
         }
     }
+
+    squareElements.forEach(item => {
+        if (item.style.backgroundColor == "black") {victory = 0}
+    });
     if (victory) {
         finishGame(1);
     } else {       
@@ -55,7 +53,7 @@ function game() {
         }        
     }
     inputElement.value = '';
-    }
+    
 }
 
 function startGame() {
@@ -83,19 +81,13 @@ function getRandomIntNumber(min, max, minInclusive = true, maxInclusive = false)
 }
 function getsquareElements(){        
     cellsElement.innerHTML = SQUARE.repeat(answer.length);;
-    squareElements = document.querySelectorAll(".square");   
-    // squareElements.forEach(item => {
-    //     // item.innerHTML = answer[i] ;
-    //     item.style.backgroundColor = "red";
-    // });
-    // squareElements.forEach(item => {
-    //     item.innerHTML = answer[i] ;
-    //     // item.style.backgroundColor = "red";
-    // });
-    for (let i = 0; i < answer.length; i++){
-        squareElements[i].style.backgroundColor = "black";
-        squareElements[i].innerHTML = answer[i];
-    }
+    squareElements = document.querySelectorAll(".square");      
+    squareElements.forEach((item, index) => {
+        item.innerHTML = answer[index] ;
+        item.style.backgroundColor = "black";
+    });
+    
+    
 }
 
 //Actions
