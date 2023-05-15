@@ -65,9 +65,7 @@ function startGame() {
     questionElement.innerHTML = gameQuation[0];
     goButtonElement.disabled = false;
     inputElement.readOnly = false;
-    // squareElements.forEach(item => {
-    //     item.style.backgroundColor = "white";
-    //     item.innerHTML = ' '});
+    
     getsquareElements();
     resultMessageElement.innerHTML = '';
     playAgainButtonElement.hidden = true;
@@ -76,7 +74,7 @@ function finishGame(victory) {
     goButtonElement.disabled = true;
     inputElement.readOnly = true;
     playAgainButtonElement.hidden = false;
-    victory ? resultMessageElement.innerHTML = `Congratulation! You won in ${count} steps` : resultMessageElement.innerHTML = `GameOver! Right answer is ${answer}`;
+    victory ? resultMessageElement.innerHTML = `Congratulation! You won in ${count} steps` : resultMessageElement.innerHTML = `GameOver! Right answer was ${answer}`;
 }
 function getRandomIntNumber(min, max, minInclusive = true, maxInclusive = false) {
     if (!minInclusive) { min++; }
@@ -85,7 +83,19 @@ function getRandomIntNumber(min, max, minInclusive = true, maxInclusive = false)
 }
 function getsquareElements(){        
     cellsElement.innerHTML = SQUARE.repeat(answer.length);;
-    squareElements = document.querySelectorAll(".square");    
+    squareElements = document.querySelectorAll(".square");   
+    // squareElements.forEach(item => {
+    //     // item.innerHTML = answer[i] ;
+    //     item.style.backgroundColor = "red";
+    // });
+    // squareElements.forEach(item => {
+    //     item.innerHTML = answer[i] ;
+    //     // item.style.backgroundColor = "red";
+    // });
+    for (let i = 0; i < answer.length; i++){
+        squareElements[i].style.backgroundColor = "black";
+        squareElements[i].innerHTML = answer[i];
+    }
 }
 
 //Actions
