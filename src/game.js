@@ -1,8 +1,6 @@
 //configuration
 const nTries = 3;
-//const vocabulary = ["apple", "comma", "table", "happy", "width", "scope", "floor", "sport", "guess"];
-//const vocabulary = ["a", "bb", "abc", "abcabc"];
-const vocabulary = [["Quation1", "aa"], ["Quation2", "ab"],["Quation3", "abc"],["Quation4", "aabb"],["Quation5", "qwerty"],];
+const vocabulary = [["Quation1", "aa"], ["Quation2", "ab"],["Quation3", "abc"],["Quation4", "aabb"],["Quation5", "qwerty"]];
 
 
 //elements
@@ -11,10 +9,6 @@ const cellsElement = document.getElementById("cells-id");
 const goButtonElement = document.getElementById("go-id");
 const inputElement = document.getElementById("input-id");
 const questionElement = document.getElementById("question-id");
-
-//const squareElements = document.querySelectorAll(".square");
- 
-
 const resultMessageElement = document.getElementById("game-result");
 const playAgainButtonElement = document.getElementById("play-again-id");
 
@@ -29,6 +23,11 @@ function game() {
     const guess = (inputElement.value).toLowerCase();
     count++;
     let victory = 1;
+
+    if (guess.length != answer.length && guess.length != 1)   {
+        alert(`must be ${answer.length} letters or only one symbol`);
+    }   
+
     if (guess.length == 1){
         squareElements.forEach(item => {
             if (item.innerHTML == guess) {
@@ -41,10 +40,12 @@ function game() {
             squareElements.forEach(item => item.style.backgroundColor = "white")
         }
     }
+    let squareElementsArray = Array.from(squareElements);
 
     squareElements.forEach(item => {
         if (item.style.backgroundColor == "black") {victory = 0}
     });
+    
     if (victory) {
         finishGame(1);
     } else {       
@@ -72,7 +73,7 @@ function finishGame(victory) {
     goButtonElement.disabled = true;
     inputElement.readOnly = true;
     playAgainButtonElement.hidden = false;
-    victory ? resultMessageElement.innerHTML = `Congratulation! You won in ${count} steps` : resultMessageElement.innerHTML = `GameOver! Right answer was ${answer}`;
+     resultMessageElement.innerHTML = victory ? `Congratulation! You won in ${count} steps` : resultMessageElement.innerHTML = `GameOver! Right answer was ${answer}`;
 }
 function getRandomIntNumber(min, max, minInclusive = true, maxInclusive = false) {
     if (!minInclusive) { min++; }
@@ -86,6 +87,10 @@ function getsquareElements(){
         item.innerHTML = answer[index] ;
         item.style.backgroundColor = "black";
     });
+    
+    //openRandomElements();
+
+
     
     
 }
