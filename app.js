@@ -1,5 +1,6 @@
 
-displayOccurrences(["lmn", "ab", "lmn", "c", "d", "ab", "a", "a", "lmn"])
+//displayOccurrences(["lmn", "ab", "lmn", "c", "d", "ab", "a", "a", "lmn"])
+console.log(isAnagram("Qwerty", "ytrewq"));
 /*lmn -> 3
  a -> 2
  ab -> 2
@@ -16,6 +17,27 @@ function displayOccurrences(array) {
   res.sort((a, b) => b[1] - a[1] == 0 ? a[0].localeCompare(b[0]) : b[1] - a[1]);
   res.forEach(item => console.log(`${item[0]} -> ${item[1]}`));
 }
+
+function isAnagram(string1, string2) {
+  let res = false;
+  if (string1.length === string2.length) {
+    string1 = string1.toLowerCase();
+    string2 = string2.toLowerCase();
+    let occurences = getOccurrences(Array.from(string1));
+    res = Array.from(string2).every(s => occurences[s]-- > 0);
+  }
+  return res;
+}
+
+function getOccurrences(array) {
+  return array.reduce((obj,s) => ({...obj, [s]: obj[s] ? obj[s] + 1 : 1}), {})
+}
+
+
+
+
+
+
 
 
 
