@@ -1,3 +1,4 @@
+import moviesObj from '../movies.json' assert {type: 'json'};       //connecting the JSON from a file
 const detailsImageElement = document.querySelector(".details-image");
 const detailsTitleElement = document.querySelector(".details-title");
 const thumbnailsAnchors = document.querySelectorAll(".thumnails-ancor");
@@ -8,18 +9,7 @@ const POINT = "is-point"
 
 const detailsSectionElement = document.querySelector(".details-section");
 
-// for (let i = 0; i < thumbnailsAnchors.length; i++) {
-//     // thumbnailsAnchors[i].addEventListener("click", function() {setDetails(thumbnailsAnchors[i]);})
-//     // addEventListener.apply(thumbnailsAnchors[i], ["click", function() {setDetails(thumbnailsAnchors[i]);}])
-//     addEventListener.call(thumbnailsAnchors[i], "click", function() {setDetails(thumbnailsAnchors[i]);})
-//     //  lines 12,13,14 are equal
-// }
-
-//instead the cycle in lines 11-16 (Exm.1):
-
-// thumbnailsAnchors.forEach(ancor => addEventListener.apply(ancor, ["click", function() {setDetails(ancor);}]))
-
-//instead the cycle in lines 11-16 (Exm.2):
+console.log(moviesObj.httpPrefix);
 
 thumbnailsAnchors.forEach(anchor => anchor.addEventListener("click", setDetails.bind(undefined, anchor)));  //undefined - because setDetails doesn't use this
 
@@ -36,3 +26,6 @@ function showDetails() {
 function hideDetails() {
     main.classList.add(HIDDEN);
 }
+
+
+
