@@ -2,9 +2,6 @@ import moviesObj from '../movies.json' assert {type: 'json'};       //connecting
 const detailsImageElement = document.querySelector(".details-image");
 const detailsTitleElement = document.querySelector(".details-title");
 const thumbnailsList = document.querySelector(".thumbnails-list");
-
-
-
 const detailsSection = document.querySelector(".details-section");
 const main = document.querySelector("main");
 const HIDDEN = "hidden";
@@ -58,7 +55,6 @@ function cutString(string, maxLength) {
 }
 
 const thumbnailsAnchors = document.querySelectorAll(".thumnails-ancor");
-
 thumbnailsAnchors.forEach(anchor => anchor.addEventListener("click", setDetails.bind(undefined, anchor)));  //undefined - because setDetails doesn't use this
 
 function setDetails(anchor) {
@@ -73,7 +69,8 @@ function showDetails() {
 }
 function hideDetails() {
     main.classList.add(HIDDEN);
-}
+} 
+window.hideDetails = hideDetails;   //for working with module import model 
 
 
 
