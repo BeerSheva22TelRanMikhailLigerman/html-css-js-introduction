@@ -1,5 +1,6 @@
 import { getEndDate, getISODateStr } from "../util/date-functions.js";
 import { range } from "../util/number-functions.js";
+import { requestWeather } from "../main.js";
 //constants
 const CITY_ID = 'city-id';
 const DATE_ID = 'date-id';
@@ -30,7 +31,7 @@ export default class WeatherForm {
     }
     #cityHandler() {
         //FIXME
-        this.#formData.city=this.#cityElement.value;
+        this.#formData.city = this.#cityElement.value;
     }
     #daysHandler() {
         //FIXME
@@ -42,10 +43,18 @@ export default class WeatherForm {
     }
     #hourFromHandler() {
         this.#formData.hourFrom = this.#hourFromElement.value;
+        // if (this.#hourToElement.value == '') {
+        //     setOptionItems(this.#hourToElement, range(this.#hourFromElement.value, 24), 'hour to');
+        // }
+
     }
     #hourToHandler() {
-        //FIXME
         this.#formData.hourTo = this.#hourToElement.value;
+        // if (this.#hourFromElement.value == '') {
+        //     setOptionItems(this.#hourFromElement, range(0, this.#hourToElement.value), 'hour to');
+        // }
+
+
     }
     #setHandlers() {
         this.#cityElement.onchange = this.#cityHandler.bind(this);
@@ -57,6 +66,8 @@ export default class WeatherForm {
         this.#formElement.onsubmit = (event) => {
             event.preventDefault();
             console.log(this.#formData);
+            requestWeather(this.#formData)
+
 
         }
     }
@@ -78,7 +89,7 @@ export default class WeatherForm {
         setOptionItems(this.#hourToElement, range(0, 24), 'hour to');
 
     }
-    #buildForm(){
+    #buildForm() {
         const parentElement = document.getElementById(this.#parentId)
         parentElement.innerHTML = `
         <form id="${this.#parentId}-${FORM_ID}" class="form-control">
@@ -106,3 +117,4 @@ function setOptionItems(element, options, placeholder) {
     element.innerHTML = `<option value hidden selected>--${placeholder}--</option>`;
     element.innerHTML += options.map(o => `<option value="${o}">${o}</option>`)
 }
+

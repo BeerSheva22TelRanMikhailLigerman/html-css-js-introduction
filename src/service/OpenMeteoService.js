@@ -9,6 +9,7 @@ export default class OpenMeteoService {
     async getTemperatures(lat, long, startDate, endDate, hourFrom,
         hourTo) {
         const url = this.#getUrl(lat, long, startDate, endDate);
+        //console.log(url);
         const response = await fetch(url);
         const data = await response.json();
         const dates = getDataForHours(data.hourly.time, hourFrom, hourTo);
