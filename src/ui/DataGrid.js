@@ -4,7 +4,7 @@ export default class DataGrid {
     constructor(parentId, columns) {
         //columns - array of objects {field: <name of key>,
         // headerName: <column name>}
-        this.#keys = columns.map(c => c.field);
+        this.#keys = columns.map(c => c.field); //get array of fields
         this.#buildTableHeader(parentId, columns.map(c => c.headerName))
 
     }
@@ -13,20 +13,21 @@ export default class DataGrid {
     }
     #getRow(obj) {
         return `<tr>
-                   ${this.#keys.map(key => `<td>${obj[key]}</td>` ).join('')}
+                   ${this.#keys.map(key => `<td>${obj[key]}</td>`).join('')}
                  </tr>  `
     }
     #buildTableHeader(parentId, columnNames) {
         const tableSectionElement = document.getElementById(parentId);
         tableSectionElement.innerHTML =
             `<table>
-            <thead>
-               <tr>
-                   ${columnNames.map(headerName => `<th>${headerName}</th>`).join('')}
-               </tr>
-            </thead>
-            <tbody id="${parentId}-table" >
-            </tbody>
+                <thead>
+                    <tr>
+                        ${columnNames.map(headerName => `<th>${headerName}</th>`).join('')}
+                    </tr>
+                </thead>0
+                
+                <tbody id="${parentId}-table" >
+                </tbody>
           </table>`
         this.#tBodyElement = document.getElementById(parentId + "-table")
 

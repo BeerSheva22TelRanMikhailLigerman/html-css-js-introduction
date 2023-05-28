@@ -13,19 +13,20 @@ const columns = [
 //functions
 
 
-const fromFormData = {
-    city: 'Rehovot',
-    startDate: getISODateStr(new Date()),
-    days: 0, hourFrom: 20, hourTo: 21
-};
+// const fromFormData = {
+//     city: 'Rehovot',
+//     startDate: getISODateStr(new Date()),
+//     days: 0, hourFrom: 20, hourTo: 21
+// };
 //objects
 const form = new WeatherForm("form-place",
  Object.keys(openMeteoConfig.cities), openMeteoConfig.maxDays);
 const openMeteoService = new OpenMeteoService(openMeteoConfig.baseUrl);
+
 const table = new DataGrid("table-place", columns)
 const latLong = openMeteoConfig.cities[fromFormData.city];
 const { lat, long } = latLong;
 
-const { startDate, days, hourFrom, hourTo } = fromFormData
+const { startDate, days, hourFrom, hourTo } = fromFormData;
 openMeteoService.getTemperatures(lat, long, startDate, getEndDate(startDate, days),
     hourFrom, hourTo).then(data => table.fillData(data))
