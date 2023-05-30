@@ -12,19 +12,19 @@ export function getDaysBetweenDates(fromDate, toDate) {
 }
 
 export function getYearBack(years) {
-const currentDate = new Date();
-const currentYear = currentDate.getFullYear();
-const targetYear = currentYear - years;
-const targetDate = new Date(targetYear, currentDate.getMonth(), currentDate.getDate());
-return targetDate
+    const currentDate = new Date();
+    const currentYear = currentDate.getFullYear();
+    const targetYear = currentYear - years;
+    const targetDate = new Date(targetYear, currentDate.getMonth(), currentDate.getDate());
+    return targetDate
 }
-export function getRandomDate(startDate, endDate) {  
-startDate = new Date(startDate); 
-endDate = new Date(endDate);
-const timeRange = endDate.getTime() - startDate.getTime();
-const randomMilliseconds = Math.floor(Math.random() * timeRange);
-const randomDate = new Date(startDate.getTime() + randomMilliseconds);
-return getISODateStr(randomDate) 
+export function getRandomDate(startDate, endDate) {
+    startDate = new Date(startDate);
+    endDate = new Date(endDate);
+    const timeRange = endDate.getTime() - startDate.getTime();
+    const randomMilliseconds = Math.floor(Math.random() * timeRange);
+    const randomDate = new Date(startDate.getTime() + randomMilliseconds);
+    return getISODateStr(randomDate)
 }
 
 
