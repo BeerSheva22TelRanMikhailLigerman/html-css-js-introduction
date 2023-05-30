@@ -10,3 +10,14 @@ export function getDaysBetweenDates(fromDate, toDate) {
     const difference = toDate.getTime() - fromDate.getTime();
     return Math.ceil(difference / (1000 * 3600 * 24));
 }
+
+export function getYearBack(years) {
+const currentDate = new Date();
+const currentYear = currentDate.getFullYear();
+const targetYear = currentYear - years;
+const targetDate = new Date(targetYear, currentDate.getMonth(), currentDate.getDate());
+return targetDate
+}
+
+
+
