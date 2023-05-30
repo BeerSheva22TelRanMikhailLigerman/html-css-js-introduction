@@ -1,6 +1,6 @@
 import namesObj from '../config/names.json' assert {type: 'json'};
 import settingsObj from '../config/settings.json' assert {type: 'json'};
-import { getISODateStr, getYearBack } from "../util/date-functions.js";
+import { getRandomDate, getYearBack } from "../util/date-functions.js";
 
 export function getRandomInt(min, max) {
     if (min == max) {
@@ -20,7 +20,7 @@ export function getRandomEmployee() {
     return {
         id: getRandomInt(100000, 1000000),
         name: human.name,
-        birthYear: getISODateStr(getYearBack(getRandomInt(settingsObj.staff.minAge, settingsObj.staff.maxAge))),
+        birthYear: getRandomDate(getYearBack(settingsObj.staff.maxAge), getYearBack(settingsObj.staff.minAge)),
         gender: human.sex == "m" ? "male" : "female",
         salary: getRandomInt(settingsObj.staff.minSalary, settingsObj.staff.maxSalary),
         department: 'QA'
