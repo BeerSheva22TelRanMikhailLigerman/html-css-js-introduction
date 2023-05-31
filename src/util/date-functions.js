@@ -27,5 +27,29 @@ export function getRandomDate(startDate, endDate) {
     return getISODateStr(randomDate)
 }
 
+export function calculateAge(birthDate) {
+    const currentDate = new Date();
+    birthDate = new Date(birthDate);  
+    let age = currentDate.getFullYear() - birthDate.getFullYear();  
+    
+    const currentMonth = currentDate.getMonth();
+    const birthMonth = birthDate.getMonth();
+  
+    if (currentMonth < birthMonth) {
+      age--;
+    } else if (currentMonth === birthMonth) {
+        const currentDay = currentDate.getDate();
+        const birthDay = birthDate.getDate();
+  
+      if (currentDay < birthDay) {
+        age--;
+      }
+    }  
+    return age;
+  }
+  
+  
+  
+
 
 

@@ -2,7 +2,7 @@
     "staff": {
         "maxSalary" : 50000,
         "minSalary" : 5572,
-        "minAge" : 18,
+        "minAge" : 20,
         "maxAge" : 59
     }
 }
