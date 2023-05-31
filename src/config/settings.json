@@ -8,6 +8,6 @@
     "statistics":{
         "step": 10,
         "startAge": 20,
-        "endAge":50
+        "endAge":60
     }
 }

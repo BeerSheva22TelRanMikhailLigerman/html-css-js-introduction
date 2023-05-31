@@ -19,6 +19,9 @@ export default class DataGrid {
     insertRow(obj) {
         this.#tBodyElement.innerHTML += this.#getRow(obj)
     }
+    clearSection(){
+        this.#tBodyElement.innerHTML = ''
+    }
     #buildTableHeader(parentId, columnNames) {
         const tableSectionElement = document.getElementById(parentId);
         tableSectionElement.innerHTML =
