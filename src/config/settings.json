@@ -6,7 +6,7 @@
         "maxAge" : 59
     },
     "statistics":{
-        "step": 10,
+        "step": 20,
         "startAge": 20,
         "endAge":60
     }

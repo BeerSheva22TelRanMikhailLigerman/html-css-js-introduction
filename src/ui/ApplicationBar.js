@@ -5,7 +5,7 @@ export default class ApplicationBar {
     #activeIndex
     constructor(parentId, sections) {   //"menu-place", [{ title: "Empolyees", id: "employees-table-place" }, ..]
         //sections - array of objects 
-        //each object {title: string, id: string}
+        //each object {title: string, id: string}       
         this.#fillButtons(parentId, sections.map(s => s.title));
         this.#setSectionElements(sections.map(s => s.id));
         this.#addListeners();

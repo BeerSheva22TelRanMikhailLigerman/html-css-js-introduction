@@ -20,8 +20,7 @@ const employeeColumns = [
     { field: 'salary', headerName: 'Salary (ILS)' },
     { field: 'department', headerName: 'Department' }
 ]
-const StatisticsColumns = [
-   
+const StatisticsColumns = [   
     { field: 'minAge', headerName: 'Age from' },
     { field: 'maxAge', headerName: 'Age to' },
     { field: 'count', headerName: 'Count' }
