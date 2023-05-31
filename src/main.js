@@ -3,7 +3,7 @@ import DataGrid from "./ui/DataGrid.js";
 import EmployeeForm from "./ui/EmployeeForm.js";
 import { getRandomEmployee } from "./util/random.js";
 import {addEmployees} from "./service/Company.js";
-import {getStatistics} from "./service/Statistics.js"
+import Statistics from "./service/Statistics.js"
 //employee model
 //{id: number of 9 digits, name: string, birthYear: number,
 // gender: female | male, salary: number, department: QA, Development, Audit, Accounting, Management}
@@ -25,6 +25,8 @@ const employeeColumns = [
 const menu = new ApplicationBar("menu-place", sections);
 const employeeForm = new EmployeeForm("employees-form-place");
 const employeeTable = new DataGrid("employees-table-place", employeeColumns);
+//const statisticsTable = new DataGrid("employees-table-place", employeeColumns);
+const statistics = new Statistics();
 
 async function run() {
     while (true) {
@@ -32,7 +34,7 @@ async function run() {
         const employee = getRandomEmployee();
         employeeTable.insertRow(employee);
         addEmployees(employee);
-        getStatistics()
+        console.log(statistics.getStatistics())
 
     }
 }
