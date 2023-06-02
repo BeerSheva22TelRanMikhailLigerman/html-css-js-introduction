@@ -1,21 +1,23 @@
 const ACTIVE = 'active'
 export default class ApplicationBar {
     #buttons
-    #sectionElements    //array of links to 3 buttons
+    #sectionElements
     #activeIndex
-    constructor(parentId, sections) {   //"menu-place", [{ title: "Empolyees", id: "employees-table-place" }, ..]
+    #callbackFn
+    constructor(parentId, sections, callbackFn) {
         //sections - array of objects 
-        //each object {title: string, id: string}       
+        //each object {title: string, id: string}
+        this.#callbackFn = callbackFn;
         this.#fillButtons(parentId, sections.map(s => s.title));
         this.#setSectionElements(sections.map(s => s.id));
         this.#addListeners();
 
 
     }
-    #fillButtons(parentId, titles) {    //builds the buttons
+    #fillButtons(parentId, titles) {
         const parentElement = document.getElementById(parentId);
         parentElement.innerHTML = titles.map(t => `<button class="menu-button">${t}</button>`).join('');
-        this.#buttons = parentElement.childNodes;       
+        this.#buttons = parentElement.childNodes;
     }
     #setSectionElements(sectionIds) {
         this.#sectionElements = sectionIds.map(id => document.getElementById(id));
@@ -24,7 +26,7 @@ export default class ApplicationBar {
         this.#buttons.forEach((b, index) => b.addEventListener('click',
          this.#handler.bind(this, index)))
     }
-    #handler(index) { //changes an active element
+    #handler(index) {
         if (this.#activeIndex == undefined || index != this.#activeIndex) {
             if(this.#activeIndex != undefined) {
                  this.#buttons[this.#activeIndex].classList.remove(ACTIVE);
@@ -34,6 +36,7 @@ export default class ApplicationBar {
             this.#sectionElements[index].hidden = false;
             this.#buttons[index].classList.add(ACTIVE);
             this.#activeIndex = index;
+            this.#callbackFn(index);
 
         }
     }

@@ -1,7 +1,7 @@
 export default class DataGrid {
     #tBodyElement
     #keys
-    constructor(parentId, columns) {        //"employees-table-place", employeeColumns
+    constructor(parentId, columns) {
         //columns - array of objects {field: <name of key>,
         // headerName: <column name>}
         this.#keys = columns.map(c => c.field);
@@ -18,9 +18,6 @@ export default class DataGrid {
     }
     insertRow(obj) {
         this.#tBodyElement.innerHTML += this.#getRow(obj)
-    }
-    clearSection(){
-        this.#tBodyElement.innerHTML = ''
     }
     #buildTableHeader(parentId, columnNames) {
         const tableSectionElement = document.getElementById(parentId);

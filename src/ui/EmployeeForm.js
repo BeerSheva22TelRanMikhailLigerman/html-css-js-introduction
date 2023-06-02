@@ -2,7 +2,7 @@ export default class EmployeeForm {
     #buttonElement;
     #parentElement
     constructor(parentId) {
-        this.#parentElement = document.getElementById(parentId);  //employees-form-place
+        this.#parentElement = document.getElementById(parentId);
         this.#fillSection();
         this.#buttonElement = document.getElementById('button-id');
 
